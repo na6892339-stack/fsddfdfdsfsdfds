@@ -12,8 +12,8 @@
 	
 	<link rel="shortcut icon" type="image/png" href="./favicon.png">
 	
-	<!-- 🌟 defer を追加して、HTMLの読み込み完了後に安全にゲームを実行させます -->
-	<script type="text/javascript" defer src="./PsychEngine.js"></script>
+	
+	<script type="text/javascript" src="./PsychEngine.js"></script>
 	
 	<script>
 		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, { capture: false, passive: false });
@@ -71,18 +71,8 @@
 	
 	<div id="openfl-content"></div>
 	
-	<!-- 🌟 ゲーム起動タイミングを調整し、読み込みエラーを防ぎます -->
 	<script type="text/javascript">
-		window.addEventListener('DOMContentLoaded', function() {
-			if (typeof lime !== 'undefined') {
-				lime.embed ("PsychEngine", "openfl-content", 1280, 720, { parameters: {} });
-			} else {
-				console.error("Lime is not loaded yet. Retrying...");
-				setTimeout(function() {
-					lime.embed ("PsychEngine", "openfl-content", 1280, 720, { parameters: {} });
-				}, 1000);
-			}
-		}
+		lime.embed ("PsychEngine", "openfl-content", 1280, 720, { parameters: {} });
 	</script>
 	
 </body>
